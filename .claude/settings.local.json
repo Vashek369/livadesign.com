@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd.exe /c \"\\\\\"C:\\\\Users\\\\vacla\\\\AppData\\\\Local\\\\ms-playwright-go\\\\1.50.1\\\\node.exe\\\\\" C:\\\\tmp\\\\screenshot.js 2>&1\")"
+    ]
+  }
+}

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LIVA Design</title>
+  <!-- Security: upgrade any accidental mixed-content requests to HTTPS -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://use.typekit.net; font-src https://use.typekit.net https://p.typekit.net; img-src 'self'; connect-src 'self' https://use.typekit.net https://p.typekit.net; base-uri 'self'; form-action 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="preconnect" href="https://p.typekit.net" crossorigin>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="https://use.typekit.net/uyi6oik.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://use.typekit.net/uyi6oik.css"></noscript>
+</head>
+
+<body>
+
+  <!-- SVG symbol — defined once, referenced via <use> throughout the page -->
+  <svg style="display:none" aria-hidden="true">
+    <defs>
+      <path id="lv-path" d="M1036.13,2287.78c193.29-338.59,360.8-412.59,477.77-417.89,291.65-13.21,434.83,393.14,793.13,416.9,207.22,13.75,384.42-107.25,498.54-207.15-104.89-47.41-267.84-134.29-430.66-286.42-145.43-135.89-448.11-418.71-415.05-737.78,22.19-214.18,177.12-265.63,177.2-497.21.05-158.54-72.51-288.91-136.3-376.35-85.84,175.53-194.87,371.62-333.4,577.44-140.97,209.44-284.17,386.89-416.58,534.2,58.04-3.69,239.24-7.83,419.62,111.54,190.84,126.29,256.08,308.31,273.17,361.95-74.03-41.78-388.68-208.31-789.16-116.86-348.67,79.62-548.77,306.02-608.69,379.49,67.43,10.7,168.16,34.84,277.37,94.33,98.48,53.64,168.34,116.67,213.04,163.8Z"/>
+    </defs>
+  </svg>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner" aria-live="polite" aria-label="Cookie consent">
+    <p class="cookie-banner__text"><span data-i18n="cookie.text">We use cookies to improve your experience and analyze website traffic.</span> <a href="privacy-policy.html" class="cookie-banner__policy" data-i18n="cookie.policy">Privacy Policy</a></p>
+    <div class="cookie-banner__actions">
+      <button class="btn btn--ghost cookie-banner__btn" id="cookieReject" data-i18n="cookie.reject">Only necessary</button>
+      <button class="btn btn--primary cookie-banner__btn" id="cookieAccept" data-i18n="cookie.accept">Accept all</button>
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3351.29 2469.76">
+      <use href="#lv-path"/>
+    </svg>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav__logo">LIVA Design</a>
+    <div class="nav__right">
+      <ul class="nav__links">
+        <li>
+          <div class="nav__lang" id="langSwitch">
+            <button class="nav__lang-btn" data-lang="cs">CZ</button>
+            <span class="nav__lang-sep">/</span>
+            <button class="nav__lang-btn active" data-lang="en">EN</button>
+          </div>
+        </li>
+        <li><a href="#work" data-i18n="nav.work">Work</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#production" data-i18n="nav.production">Production</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+      </ul>
+      <a href="#contact" class="nav__cta" data-i18n="nav.cta">Let's talk</a>
+    </div>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#work" class="mobile-link" data-i18n="mobile.work">Work</a></li>
+      <li><a href="#services" class="mobile-link" data-i18n="mobile.services">Services</a></li>
+      <li><a href="#production" class="mobile-link" data-i18n="mobile.production">Production</a></li>
+      <li><a href="#about" class="mobile-link" data-i18n="mobile.about">About</a></li>
+      <li><a href="#contact" class="mobile-link" data-i18n="mobile.cta">Let's talk</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero__noise"></div>
+    <div class="hero__grid"></div>
+
+    <!-- Zone 1: label — center locked to cell midpoint by zone height -->
+    <div class="hero__zone-top">
+      <div class="hero__content">
+        <div class="hero__label-row reveal">
+          <div class="hero__tag"><span style="position:relative;top:-1px" data-i18n="hero.tag">Design Studio</span></div>
+          <span class="hero__tag-sub"><span style="position:relative;top:-0.5px" data-i18n="hero.tag-sub">(with an AI overlap)</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone 2: headline + sub — centered in remaining space -->
+    <div class="hero__zone-mid">
+      <div class="hero__content">
+        <h1 class="hero__headline reveal" data-i18n-html="hero.headline">
+          We design<br />
+          <span class="accent">experiences</span><br />
+          that convert.
+        </h1>
+        <p class="hero__sub reveal" data-i18n-html="hero.sub">
+          <span>Branding · UI/UX · Web Design · Design Systems</span>
+          <span class="hero__sub-physical">Print · Signage · Merch · 3D Printing</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Zone 3: CTA — snapped to grid line by padding + JS -->
+    <div class="hero__zone-bot">
+      <div class="hero__content">
+        <div class="hero__actions reveal">
+          <a href="#work" class="btn btn--primary"><span style="position:relative;top:3.5px" data-i18n="hero.btn-work">View work</span></a>
+          <a href="#contact" class="btn btn--ghost"><span style="position:relative;top:3.5px" data-i18n="hero.btn-project">Start project</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span data-i18n="hero.scroll">Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee" aria-hidden="true">
+      <!-- Set 1 — 35 items -->
+      <span>Branding</span><span class="dot">&#9679;</span>
+      <span>UI/UX</span><span class="dot">&#9679;</span>
+      <span>Web Design</span><span class="dot">&#9679;</span>
+      <span>Design Systems</span><span class="dot">&#9679;</span>
+      <span>Print</span><span class="dot">&#9679;</span>
+      <span>Signage</span><span class="dot">&#9679;</span>
+      <span>Merch</span><span class="dot">&#9679;</span>
+      <span>3D</span><span class="dot">&#9679;</span>
+      <span>Logo Design</span><span class="dot">&#9679;</span>
+      <span>Wireframes</span><span class="dot">&#9679;</span>
+      <span>Landing Pages</span><span class="dot">&#9679;</span>
+      <span>Component Libraries</span><span class="dot">&#9679;</span>
+      <span>Business Cards</span><span class="dot">&#9679;</span>
+      <span>PVC Banners</span><span class="dot">&#9679;</span>
+      <span>Screen Printing</span><span class="dot">&#9679;</span>
+      <span>3D Modeling</span><span class="dot">&#9679;</span>
+      <span>Visual Identity</span><span class="dot">&#9679;</span>
+      <span>User Flows</span><span class="dot">&#9679;</span>
+      <span>E-commerce</span><span class="dot">&#9679;</span>
+      <span>UI Kits</span><span class="dot">&#9679;</span>
+      <span>Posters</span><span class="dot">&#9679;</span>
+      <span>Dibond Signs</span><span class="dot">&#9679;</span>
+      <span>DTF</span><span class="dot">&#9679;</span>
+      <span>3D Prototyping</span><span class="dot">&#9679;</span>
+      <span>Brand Guidelines</span><span class="dot">&#9679;</span>
+      <span>Embroidery</span><span class="dot">&#9679;</span>
+      <span>Interactive Prototyping</span><span class="dot">&#9679;</span>
+      <span>Web Interfaces</span><span class="dot">&#9679;</span>
+      <span>Documentation</span><span class="dot">&#9679;</span>
+      <span>Flyers</span><span class="dot">&#9679;</span>
+      <span>Vinyl Wraps</span><span class="dot">&#9679;</span>
+      <span>Digital Print</span><span class="dot">&#9679;</span>
+      <span>3D Printing</span><span class="dot">&#9679;</span>
+      <span>Stickers</span><span class="dot">&#9679;</span>
+      <span>Packaging</span><span class="dot">&#9679;</span>
+      <span>Custom Apparel</span><span class="dot">&#9679;</span>
+    </div>
+  </div>
+
+  <!-- CLIENTS MARQUEE -->
+  <div class="marquee-wrap marquee-wrap--clients" aria-label="Clients">
+    <div class="marquee marquee--reverse" aria-hidden="true">
+      <!-- Set 1 — big brands at pos 1/4/7, smaller brands fill between -->
+      <span>MICROSOFT</span><span class="dot">&#9679;</span>
+      <span>URSU9</span><span class="dot">&#9679;</span>
+      <span>VOGO BARBER</span><span class="dot">&#9679;</span>
+      <span>JÄGERMEISTER</span><span class="dot">&#9679;</span>
+      <span>DĚTI RÁJE</span><span class="dot">&#9679;</span>
+      <span>ASEKOL</span><span class="dot">&#9679;</span>
+      <span>CANON</span><span class="dot">&#9679;</span>
+      <span>SPIKE</span><span class="dot">&#9679;</span>
+      <span>ČESKÝ PEKAŘ</span><span class="dot">&#9679;</span>
+      <span>TETA</span><span class="dot">&#9679;</span>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section class="section work" id="work">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label" data-i18n="work.label">Selected Work</span>
+        <h2 class="section__title" data-i18n-html="work.title">Projects that<br /><span class="accent">define
+            brands.</span></h2>
+      </div>
+
+      <div class="projects">
+
+        <div class="project reveal" data-index="01">
+          <div class="project__img project__img--1">
+            <img class="project__logo" src="cesky pekar.svg" alt="Český Pekař" draggable="false" />
+            <div class="project__overlay">
+              <span data-i18n="project.view">View Case</span>
+            </div>
+          </div>
+          <div class="project__info">
+            <div>
+              <h3>Český Pekař</h3>
+              <p data-i18n="project.desc-1">Packaging design, visual communication</p>
+            </div>
+            <span class="project__year">2022–2026</span>
+          </div>
+        </div>
+
+        <div class="project reveal" data-index="02">
+          <div class="project__img project__img--2">
+            <img class="project__logo" src="jagermeister.svg" alt="Jägermeister" draggable="false" />
+            <div class="project__overlay">
+              <span data-i18n="project.view">View Case</span>
+            </div>
+          </div>
+          <div class="project__info">
+            <div>
+              <h3>Jägermeister</h3>
+              <p data-i18n="project.desc-2">Social media, visual communication</p>
+            </div>
+            <span class="project__year">2023</span>
+          </div>
+        </div>
+
+        <div class="project reveal" data-index="03">
+          <div class="project__img project__img--3">
+            <img class="project__logo" src="nik tendo.svg" alt="Nik Tendo" draggable="false" />
+            <div class="project__overlay">
+              <span data-i18n="project.view">View Case</span>
+            </div>
+          </div>
+          <div class="project__info">
+            <div>
+              <h3>Nik Tendo</h3>
+              <p data-i18n="project.desc-3">Creative direction of tour visuals for the album GOLDKIID</p>
+            </div>
+            <span class="project__year">2025</span>
+          </div>
+        </div>
+
+        <div class="project reveal" data-index="04">
+          <div class="project__img project__img--4">
+            <img class="project__logo" src="deti raje.svg" alt="Děti ráje" draggable="false" />
+            <div class="project__overlay">
+              <span data-i18n="project.view">View Case</span>
+            </div>
+          </div>
+          <div class="project__info">
+            <div>
+              <h3>Děti ráje</h3>
+              <p data-i18n="project.desc-4">Full merchandise for the musical Děti ráje</p>
+            </div>
+            <span class="project__year">2025</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label" data-i18n="services.label">What We Do</span>
+        <h2 class="section__title" data-i18n-html="services.title">Services built for<br /><span class="accent">modern
+            brands.</span></h2>
+      </div>
+
+      <div class="services__grid">
+
+        <div class="service reveal">
+          <div class="service__num">01</div>
+          <div class="service__body">
+            <h3 data-i18n="svc.01.name">Brand Identity</h3>
+            <p data-i18n="svc.01.desc">Strategy-driven visual systems — logo, typography, color, and guidelines that
+              make your brand unmistakable.</p>
+          </div>
+          <div class="service__arrow">&#8599;</div>
+        </div>
+
+        <div class="service reveal">
+          <div class="service__num">02</div>
+          <div class="service__body">
+            <h3 data-i18n="svc.02.name">UI / UX Design</h3>
+            <p data-i18n="svc.02.desc">Interfaces that feel effortless. Research-backed, pixel-perfect, and built to
+              drive real product outcomes.</p>
+          </div>
+          <div class="service__arrow">&#8599;</div>
+        </div>
+
+        <div class="service reveal">
+          <div class="service__num">03</div>
+          <div class="service__body">
+            <h3 data-i18n="svc.03.name">Web Design</h3>
+            <p data-i18n="svc.03.desc">Conversion-focused websites with sharp aesthetics, smooth interactions, and
+              purposeful layout.</p>
+          </div>
+          <div class="service__arrow">&#8599;</div>
+        </div>
+
+        <div class="service reveal">
+          <div class="service__num">04</div>
+          <div class="service__body">
+            <h3 data-i18n="svc.04.name">Design Systems</h3>
+            <p data-i18n="svc.04.desc">Scalable component libraries and documentation that keep product teams aligned
+              and moving fast.</p>
+          </div>
+          <div class="service__arrow">&#8599;</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PHYSICAL PRODUCTION -->
+  <section class="section production" id="production">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label" data-i18n="prod.label">What We Make</span>
+        <h2 class="section__title" data-i18n-html="prod.title">Physical production for<br /><span
+            class="accent">real-world impact.</span></h2>
+      </div>
+
+      <div class="production__grid">
+
+        <div class="service reveal">
+          <div class="service__num">01</div>
+          <div class="service__body">
+            <h3 data-i18n="prod.01.name">Print</h3>
+            <p data-i18n="prod.01.desc">Business cards, posters, flyers, and everyday brand materials produced with
+              precision and consistency.</p>
+          </div>
+          <div class="service__arrow">&#8599;</div>
+        </div>
+
+        <div class="service reveal">
+          <div class="service__num">02</div>
+          <div class="service__body">
+            <h3 data-i18n="prod.02.name">Signage &amp; Banners</h3>
+            <p data-i18n="prod.02.desc">PVC, dibond, and custom signage solutions designed for visibility and
+              durability.</p>
+          </div>
+          <div class="service__arrow">&#8599;</div>
+        </div>
+
+        <div class="service reveal">
+          <div class="service__num">03</div>
+          <div class="service__body">
+            <h3 data-i18n="prod.03.name">Merch Production</h3>
+            <p data-i18n="prod.03.desc">Apparel, accessories, and custom merch including screen print, DTF, digital print and embroidery.</p>
+          </div>
+          <div class="service__arrow">&#8599;</div>
+        </div>
+
+        <div class="service reveal">
+          <div class="service__num">04</div>
+          <div class="service__body">
+            <h3 data-i18n="prod.04.name">3D Modeling &amp; Printing</h3>
+            <p data-i18n="prod.04.desc">Custom 3D models and physical prototypes, from concept to real-world production.
+            </p>
+          </div>
+          <div class="service__arrow">&#8599;</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="stat__num" data-target="112">0</div>
+          <div class="stat__label" data-i18n="stat.projects">Projects delivered</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num" data-target="65">0</div>
+          <div class="stat__label" data-i18n="stat.clients">Happy clients</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num" data-target="7">0</div>
+          <div class="stat__label" data-i18n="stat.years">Years of craft</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num" data-target="4">0</div>
+          <div class="stat__label" data-i18n="stat.awards">Awards won</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+
+    <div class="container about__grid">
+
+      <!-- Text column -->
+      <div class="about__left reveal">
+        <!-- Small symbol mark above title -->
+        <svg class="about__symbol-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3351.29 2469.76" aria-hidden="true">
+          <use href="#lv-path"/>
+        </svg>
+        <h2 class="section__title" data-i18n-html="about.title">Built to deliver.<br /><span class="accent">At any
+            scale.</span></h2>
+        <p class="about__text" data-i18n="about.p1">
+          LIVA was founded by Libor &amp; Vašek — two designers with over 7 years of full-time, professional experience.
+          They've been working together since high school, and that long-term collaboration is what drives the studio's
+          consistency and trust.
+        </p>
+        <p class="about__text" data-i18n="about.p2">
+          The studio operates across the full range — from sharp, focused brand work to large-scale corporate projects.
+          Young, technically aware, and up-to-date with where design and technology are heading. No client type is out
+          of scope.
+        </p>
+        <p class="about__text" data-i18n="about.p3">
+          Behind every project is a well-structured, end-to-end process — combining design, development, and production into one seamless workflow. LIVA delivers complete packages, ensuring consistency, precision, and high-quality execution across every stage, regardless of project size.
+        </p>
+        <div class="tool-badges">
+          <span class="tool-badge">Adobe CC</span>
+          <span class="tool-badge">Figma</span>
+          <span class="tool-badge">Maxon</span>
+          <span class="tool-badge">AI</span>
+        </div>
+        <a href="brandkit.html" class="btn btn--ghost about__brand-link"><span style="position:relative;top:6.5px">LIVA Design Brand Identity &#8599;</span></a>
+      </div>
+
+      <!-- Founders column -->
+      <div class="about__right reveal">
+        <div class="founders">
+          <div class="founder">
+            <div class="founder__frame">
+              <div class="founder__photo">
+                <img src="libor.png" alt="Libor" loading="lazy" width="400" height="400" decoding="async" />
+              </div>
+            </div>
+            <div class="founder__name">Libor</div>
+            <div class="founder__role" data-i18n="about.role">Co-Founder &amp; Designer</div>
+          </div>
+          <div class="founder">
+            <div class="founder__frame">
+              <div class="founder__photo">
+                <img src="vasek.jpg" alt="Vašek" loading="lazy" width="400" height="400" decoding="async" />
+              </div>
+            </div>
+            <div class="founder__name">Vašek</div>
+            <div class="founder__role" data-i18n="about.role">Co-Founder &amp; Designer</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact__inner reveal">
+        <span class="section__label" data-i18n="contact.label">Get in Touch</span>
+        <h2 class="contact__title" data-i18n-html="contact.title">Ready to build<br /><span class="accent">something
+            great?</span></h2>
+        <p class="contact__sub" data-i18n="contact.sub">Tell us about your project and we'll get back to you within 24
+          hours.</p>
+
+        <form class="contact__form" id="contactForm" method="post" action="#">
+          <!-- Honeypot: hidden from real users, bots fill it, submission is silently dropped -->
+          <div class="form__honeypot" aria-hidden="true">
+            <label for="hp_website">Website</label>
+            <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="off" />
+          </div>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="name" data-i18n="form.name-label">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" data-i18n-ph="form.name-ph"
+                required minlength="2" maxlength="100" autocomplete="name" />
+            </div>
+            <div class="form__field">
+              <label for="email" data-i18n="form.email-label">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" data-i18n-ph="form.email-ph"
+                required maxlength="254" autocomplete="email" />
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="service" data-i18n="form.service-label">Service</label>
+            <div class="form__select-wrap">
+              <select id="service" name="service" autocomplete="off">
+                <option value="" data-i18n="form.service-ph">What do you need?</option>
+                <optgroup data-i18n-label="form.opt-digital" label="Digital Services">
+                  <option value="brand-identity" data-i18n="form.opt-brand">Brand Identity</option>
+                  <option value="ui-ux-design" data-i18n="form.opt-uiux">UI / UX Design</option>
+                  <option value="web-design" data-i18n="form.opt-web">Web Design</option>
+                  <option value="design-system" data-i18n="form.opt-system">Design Systems</option>
+                </optgroup>
+                <optgroup data-i18n-label="form.opt-physical" label="Physical Production">
+                  <option value="print" data-i18n="form.opt-print">Print</option>
+                  <option value="signage" data-i18n="form.opt-signage">Signage &amp; Banners</option>
+                  <option value="merch" data-i18n="form.opt-merch">Merch Production</option>
+                  <option value="3d-modeling" data-i18n="form.opt-3d">3D Modeling &amp; Printing</option>
+                </optgroup>
+                <optgroup data-i18n-label="form.opt-other-grp" label="Other">
+                  <option value="other" data-i18n="form.opt-other">Other</option>
+                </optgroup>
+              </select>
+              <span class="form__select-arrow" aria-hidden="true">&#9662;</span>
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="message" data-i18n="form.msg-label">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project..." data-i18n-ph="form.msg-ph"
+              rows="4" required minlength="10" maxlength="2000" autocomplete="off"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" data-i18n="form.submit">Send message &#8599;</button>
+        </form>
+
+        <div class="contact__links">
+          <a href="mailto:hello@livadesign.eu">hello@livadesign.eu</a>
+          <span class="divider">|</span>
+          <a href="tel:+420704000666">+420 704 000 666</a>
+          <span class="divider">|</span>
+          <a href="#">Instagram</a>
+          <span class="divider">|</span>
+          <a href="#">Dribbble</a>
+          <span class="divider">|</span>
+          <a href="#">LinkedIn</a>
+        </div>
+        <div class="contact__legal">
+          <span class="contact__legal-name">LIVA Design s.r.o.</span>
+          <span class="contact__legal-ico"><span class="footer__ico-label">IČO</span> <span class="footer__ico-num" data-copy="22222222">22222222</span></span>
+          <svg class="contact__legal-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3351.29 2469.76" aria-hidden="true">
+            <use href="#lv-path"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container footer__inner">
+      <span class="footer__copy" data-i18n="footer.copy">&copy; 2026 LIVA Design. All rights reserved.</span>
+      <span class="footer__sep">&middot;</span>
+      <a href="privacy-policy.html" class="footer__tnc" data-i18n="footer.privacy">Privacy Policy</a>
+      <span class="footer__sep">&middot;</span>
+      <a href="terms.html" class="footer__tnc" data-i18n="footer.terms">Terms &amp; Conditions</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
