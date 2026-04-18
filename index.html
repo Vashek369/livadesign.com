@@ -1,21 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LIVA Design</title>
+  <title>LIVA Design — Graphic Studio</title>
+  <meta name="description" content="Jsme grafické studio s přesahem do AI. Tvoříme weby, brandy a vizuální identity pro startupy a střední firmy. Reálné projekty, ověřené výsledky.">
+  <meta name="keywords" content="grafické studio, web design, branding, AI design, Česká republika, startup design">
+  <meta name="author" content="Liva">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Liva">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0A0A0A">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://livadesign.eu/">
+  <meta property="og:title" content="LIVA Design — Graphic Studio">
+  <meta property="og:description" content="Tvoříme weby, brandy a vizuální identity pro startupy a střední firmy. Reálné projekty, ověřené výsledky.">
+  <meta property="og:image" content="https://livadesign.eu/assets/images/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LIVA Design — logo grafického studia na černém pozadí">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:site_name" content="Liva">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://livadesign.eu/">
+  <meta name="twitter:title" content="LIVA Design — Graphic Studio">
+  <meta name="twitter:description" content="Tvoříme weby, brandy a vizuální identity pro startupy a střední firmy.">
+  <meta name="twitter:image" content="https://livadesign.eu/assets/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="Liva — Grafické studio s přesahem do AI">
+  <link rel="canonical" href="https://livadesign.eu/">
   <!-- Security: upgrade any accidental mixed-content requests to HTTPS -->
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://use.typekit.net; font-src https://use.typekit.net https://p.typekit.net; img-src 'self'; connect-src 'self' https://use.typekit.net https://p.typekit.net; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://use.typekit.net; font-src https://use.typekit.net https://p.typekit.net; img-src 'self'; manifest-src 'self'; connect-src 'self' https://use.typekit.net https://p.typekit.net; base-uri 'self'; form-action 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="preconnect" href="https://p.typekit.net" crossorigin>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="preload" href="https://use.typekit.net/uyi6oik.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://use.typekit.net/uyi6oik.css"></noscript>
 </head>
 
 <body>
+
+  <a href="#main-content" class="skip-link">Přeskočit na obsah</a>
 
   <!-- SVG symbol — defined once, referenced via <use> throughout the page -->
   <svg style="display:none" aria-hidden="true">
@@ -42,7 +75,7 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <a href="#" class="nav__logo">LIVA Design</a>
+    <a href="#home" class="nav__logo"><span style="position:relative;top:2px">LIVA Design</span></a>
     <div class="nav__right">
       <ul class="nav__links">
         <li>
@@ -57,9 +90,9 @@
         <li><a href="#production" data-i18n="nav.production">Production</a></li>
         <li><a href="#about" data-i18n="nav.about">About</a></li>
       </ul>
-      <a href="#contact" class="nav__cta" data-i18n="nav.cta">Let's talk</a>
+      <a href="#contact" class="nav__cta"><span style="position:relative;top:-1px" data-i18n="nav.cta">Let's talk</span></a>
     </div>
-    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span>
     </button>
   </nav>
@@ -74,6 +107,8 @@
       <li><a href="#contact" class="mobile-link" data-i18n="mobile.cta">Let's talk</a></li>
     </ul>
   </div>
+
+  <main id="main-content">
 
   <!-- HERO -->
   <section class="hero" id="home">
@@ -123,43 +158,41 @@
   <!-- MARQUEE -->
   <div class="marquee-wrap">
     <div class="marquee" aria-hidden="true">
-      <!-- Set 1 — 35 items -->
-      <span>Branding</span><span class="dot">&#9679;</span>
-      <span>UI/UX</span><span class="dot">&#9679;</span>
-      <span>Web Design</span><span class="dot">&#9679;</span>
-      <span>Design Systems</span><span class="dot">&#9679;</span>
-      <span>Print</span><span class="dot">&#9679;</span>
-      <span>Signage</span><span class="dot">&#9679;</span>
-      <span>Merch</span><span class="dot">&#9679;</span>
-      <span>3D</span><span class="dot">&#9679;</span>
-      <span>Logo Design</span><span class="dot">&#9679;</span>
-      <span>Wireframes</span><span class="dot">&#9679;</span>
-      <span>Landing Pages</span><span class="dot">&#9679;</span>
-      <span>Component Libraries</span><span class="dot">&#9679;</span>
-      <span>Business Cards</span><span class="dot">&#9679;</span>
-      <span>PVC Banners</span><span class="dot">&#9679;</span>
-      <span>Screen Printing</span><span class="dot">&#9679;</span>
-      <span>3D Modeling</span><span class="dot">&#9679;</span>
-      <span>Visual Identity</span><span class="dot">&#9679;</span>
-      <span>User Flows</span><span class="dot">&#9679;</span>
-      <span>E-commerce</span><span class="dot">&#9679;</span>
-      <span>UI Kits</span><span class="dot">&#9679;</span>
-      <span>Posters</span><span class="dot">&#9679;</span>
-      <span>Dibond Signs</span><span class="dot">&#9679;</span>
-      <span>DTF</span><span class="dot">&#9679;</span>
-      <span>3D Prototyping</span><span class="dot">&#9679;</span>
-      <span>Brand Guidelines</span><span class="dot">&#9679;</span>
-      <span>Embroidery</span><span class="dot">&#9679;</span>
-      <span>Interactive Prototyping</span><span class="dot">&#9679;</span>
-      <span>Web Interfaces</span><span class="dot">&#9679;</span>
-      <span>Documentation</span><span class="dot">&#9679;</span>
-      <span>Flyers</span><span class="dot">&#9679;</span>
-      <span>Vinyl Wraps</span><span class="dot">&#9679;</span>
-      <span>Digital Print</span><span class="dot">&#9679;</span>
-      <span>3D Printing</span><span class="dot">&#9679;</span>
-      <span>Stickers</span><span class="dot">&#9679;</span>
-      <span>Packaging</span><span class="dot">&#9679;</span>
-      <span>Custom Apparel</span><span class="dot">&#9679;</span>
+      <!-- Set 1 — 34 items -->
+      <span data-i18n="mq.branding">Branding</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.uiux">UI/UX</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.web-design">Webdesign</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.design-systems">Design syst&#233;my</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.print">Tisk</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.outdoor">Outdoor reklama</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.merch">Merch</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.3d">3D</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.logos">Loga</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.wireframes">Wireframy</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.landing-pages">Landing pages</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.components">Komponenty</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.business-cards">Vizitky</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.banners">Bannery</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.screen-printing">S&#237;totisk</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.3d-models">3D modely</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.brand-identity">Vizu&#225;ln&#237; identita</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.ecommerce">E-commerce</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.ui-kits">UI kity</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.posters">Plak&#225;ty</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.dibond">Dibond</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.dtf">DTF</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.3d-prototypes">3D prototypy</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.brand-manual">Brand manu&#225;l</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.embroidery">V&#253;&#353;ivky</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.interactive">Interaktivn&#237; prototypy</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.web-interface">Webov&#233; rozhran&#237;</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.flyers">Let&#225;ky</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.wraps">Polepy</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.digital-print">Digit&#225;ln&#237; tisk</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.3d-printing">3D tisk</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.stickers">Samolepky</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.packaging">Obaly</span><span class="dot">&#9679;</span>
+      <span data-i18n="mq.custom-apparel">Oble&#269;en&#237; na m&#237;ru</span><span class="dot">&#9679;</span>
     </div>
   </div>
 
@@ -193,9 +226,12 @@
 
         <div class="project reveal" data-index="01">
           <div class="project__img project__img--1">
-            <img class="project__logo" src="cesky pekar.svg" alt="Český Pekař" draggable="false" />
-            <div class="project__overlay">
-              <span data-i18n="project.view">View Case</span>
+            <img class="project__logo" src="assets/images/logos/cesky-pekar.svg" alt="Český pekař" width="200" height="141" loading="lazy" decoding="async" draggable="false" />
+            <div class="project__overlay"></div>
+            <div class="project__status">
+              <span class="project__status-label" data-i18n="project.status">Preparing</span>
+              <span class="project__status-sub" data-i18n="project.status-sub">Project detail coming soon</span>
+              <div class="project__status-bar"><div class="project__status-progress"></div></div>
             </div>
           </div>
           <div class="project__info">
@@ -209,9 +245,12 @@
 
         <div class="project reveal" data-index="02">
           <div class="project__img project__img--2">
-            <img class="project__logo" src="jagermeister.svg" alt="Jägermeister" draggable="false" />
-            <div class="project__overlay">
-              <span data-i18n="project.view">View Case</span>
+            <img class="project__logo" src="assets/images/logos/jagermeister.svg" alt="Jägermeister" width="200" height="173" loading="lazy" decoding="async" draggable="false" />
+            <div class="project__overlay"></div>
+            <div class="project__status">
+              <span class="project__status-label" data-i18n="project.status">Preparing</span>
+              <span class="project__status-sub" data-i18n="project.status-sub">Project detail coming soon</span>
+              <div class="project__status-bar"><div class="project__status-progress"></div></div>
             </div>
           </div>
           <div class="project__info">
@@ -225,9 +264,12 @@
 
         <div class="project reveal" data-index="03">
           <div class="project__img project__img--3">
-            <img class="project__logo" src="nik tendo.svg" alt="Nik Tendo" draggable="false" />
-            <div class="project__overlay">
-              <span data-i18n="project.view">View Case</span>
+            <img class="project__logo" src="assets/images/logos/nik-tendo.svg" alt="Nik Tendo" width="200" height="107" loading="lazy" decoding="async" draggable="false" />
+            <div class="project__overlay"></div>
+            <div class="project__status">
+              <span class="project__status-label" data-i18n="project.status">Preparing</span>
+              <span class="project__status-sub" data-i18n="project.status-sub">Project detail coming soon</span>
+              <div class="project__status-bar"><div class="project__status-progress"></div></div>
             </div>
           </div>
           <div class="project__info">
@@ -241,9 +283,12 @@
 
         <div class="project reveal" data-index="04">
           <div class="project__img project__img--4">
-            <img class="project__logo" src="deti raje.svg" alt="Děti ráje" draggable="false" />
-            <div class="project__overlay">
-              <span data-i18n="project.view">View Case</span>
+            <img class="project__logo" src="assets/images/logos/deti-raje.svg" alt="Děti Ráje" width="200" height="142" loading="lazy" decoding="async" draggable="false" />
+            <div class="project__overlay"></div>
+            <div class="project__status">
+              <span class="project__status-label" data-i18n="project.status">Preparing</span>
+              <span class="project__status-sub" data-i18n="project.status-sub">Project detail coming soon</span>
+              <div class="project__status-bar"><div class="project__status-progress"></div></div>
             </div>
           </div>
           <div class="project__info">
@@ -270,45 +315,45 @@
 
       <div class="services__grid">
 
-        <div class="service reveal">
+        <a class="service reveal" href="#contact">
           <div class="service__num">01</div>
           <div class="service__body">
             <h3 data-i18n="svc.01.name">Brand Identity</h3>
             <p data-i18n="svc.01.desc">Strategy-driven visual systems — logo, typography, color, and guidelines that
               make your brand unmistakable.</p>
           </div>
-          <div class="service__arrow">&#8599;</div>
-        </div>
+          <div class="service__arrow"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></div>
+        </a>
 
-        <div class="service reveal">
+        <a class="service reveal" href="#contact">
           <div class="service__num">02</div>
           <div class="service__body">
             <h3 data-i18n="svc.02.name">UI / UX Design</h3>
             <p data-i18n="svc.02.desc">Interfaces that feel effortless. Research-backed, pixel-perfect, and built to
               drive real product outcomes.</p>
           </div>
-          <div class="service__arrow">&#8599;</div>
-        </div>
+          <div class="service__arrow"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></div>
+        </a>
 
-        <div class="service reveal">
+        <a class="service reveal" href="#contact">
           <div class="service__num">03</div>
           <div class="service__body">
             <h3 data-i18n="svc.03.name">Web Design</h3>
             <p data-i18n="svc.03.desc">Conversion-focused websites with sharp aesthetics, smooth interactions, and
               purposeful layout.</p>
           </div>
-          <div class="service__arrow">&#8599;</div>
-        </div>
+          <div class="service__arrow"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></div>
+        </a>
 
-        <div class="service reveal">
+        <a class="service reveal" href="#contact">
           <div class="service__num">04</div>
           <div class="service__body">
             <h3 data-i18n="svc.04.name">Design Systems</h3>
             <p data-i18n="svc.04.desc">Scalable component libraries and documentation that keep product teams aligned
               and moving fast.</p>
           </div>
-          <div class="service__arrow">&#8599;</div>
-        </div>
+          <div class="service__arrow"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></div>
+        </a>
 
       </div>
     </div>
@@ -325,44 +370,44 @@
 
       <div class="production__grid">
 
-        <div class="service reveal">
+        <a class="service reveal" href="#contact">
           <div class="service__num">01</div>
           <div class="service__body">
             <h3 data-i18n="prod.01.name">Print</h3>
             <p data-i18n="prod.01.desc">Business cards, posters, flyers, and everyday brand materials produced with
               precision and consistency.</p>
           </div>
-          <div class="service__arrow">&#8599;</div>
-        </div>
+          <div class="service__arrow"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></div>
+        </a>
 
-        <div class="service reveal">
+        <a class="service reveal" href="#contact">
           <div class="service__num">02</div>
           <div class="service__body">
             <h3 data-i18n="prod.02.name">Signage &amp; Banners</h3>
             <p data-i18n="prod.02.desc">PVC, dibond, and custom signage solutions designed for visibility and
               durability.</p>
           </div>
-          <div class="service__arrow">&#8599;</div>
-        </div>
+          <div class="service__arrow"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></div>
+        </a>
 
-        <div class="service reveal">
+        <a class="service reveal" href="#contact">
           <div class="service__num">03</div>
           <div class="service__body">
             <h3 data-i18n="prod.03.name">Merch Production</h3>
             <p data-i18n="prod.03.desc">Apparel, accessories, and custom merch including screen print, DTF, digital print and embroidery.</p>
           </div>
-          <div class="service__arrow">&#8599;</div>
-        </div>
+          <div class="service__arrow"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></div>
+        </a>
 
-        <div class="service reveal">
+        <a class="service reveal" href="#contact">
           <div class="service__num">04</div>
           <div class="service__body">
             <h3 data-i18n="prod.04.name">3D Modeling &amp; Printing</h3>
             <p data-i18n="prod.04.desc">Custom 3D models and physical prototypes, from concept to real-world production.
             </p>
           </div>
-          <div class="service__arrow">&#8599;</div>
-        </div>
+          <div class="service__arrow"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></div>
+        </a>
 
       </div>
     </div>
@@ -424,7 +469,7 @@
           <span class="tool-badge">Maxon</span>
           <span class="tool-badge">AI</span>
         </div>
-        <a href="brandkit.html" class="btn btn--ghost about__brand-link"><span style="position:relative;top:6.5px">LIVA Design Brand Identity &#8599;</span></a>
+        <a href="/coming-soon.html" class="btn btn--ghost about__brand-link"><span style="position:relative;top:6px">LIVA Design Brand Identity <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></span></a>
       </div>
 
       <!-- Founders column -->
@@ -433,7 +478,11 @@
           <div class="founder">
             <div class="founder__frame">
               <div class="founder__photo">
-                <img src="libor.png" alt="Libor" loading="lazy" width="400" height="400" decoding="async" />
+                <picture>
+                  <source media="(max-width: 768px)" srcset="assets/images/team/libor-mobile.webp" type="image/webp">
+                  <source srcset="assets/images/team/libor.webp" type="image/webp">
+                  <img src="assets/images/team/libor.jpg" alt="Libor Jůzek, zakladatel Liva" loading="lazy" decoding="async" width="1200" height="1200">
+                </picture>
               </div>
             </div>
             <div class="founder__name">Libor</div>
@@ -442,7 +491,11 @@
           <div class="founder">
             <div class="founder__frame">
               <div class="founder__photo">
-                <img src="vasek.jpg" alt="Vašek" loading="lazy" width="400" height="400" decoding="async" />
+                <picture>
+                  <source media="(max-width: 768px)" srcset="assets/images/team/vasek-mobile.webp" type="image/webp">
+                  <source srcset="assets/images/team/vasek.webp" type="image/webp">
+                  <img src="assets/images/team/vasek.jpg" alt="Václav Čmolík, zakladatel Liva" loading="lazy" decoding="async" width="1200" height="1200">
+                </picture>
               </div>
             </div>
             <div class="founder__name">Vašek</div>
@@ -474,18 +527,20 @@
             <div class="form__field">
               <label for="name" data-i18n="form.name-label">Name</label>
               <input type="text" id="name" name="name" placeholder="Your Name" data-i18n-ph="form.name-ph"
-                required minlength="2" maxlength="100" autocomplete="name" />
+                required minlength="2" maxlength="100" autocomplete="name" aria-describedby="name-error" />
+              <div class="form__error" id="name-error" role="alert"></div>
             </div>
             <div class="form__field">
               <label for="email" data-i18n="form.email-label">Email</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" data-i18n-ph="form.email-ph"
-                required maxlength="254" autocomplete="email" />
+              <input type="email" id="email" name="email" placeholder="vá&#353;@email.cz" data-i18n-ph="form.email-ph"
+                required maxlength="254" autocomplete="email" aria-describedby="email-error" />
+              <div class="form__error" id="email-error" role="alert"></div>
             </div>
           </div>
           <div class="form__field">
             <label for="service" data-i18n="form.service-label">Service</label>
             <div class="form__select-wrap">
-              <select id="service" name="service" autocomplete="off">
+              <select id="service" name="service" autocomplete="off" aria-describedby="service-error">
                 <option value="" data-i18n="form.service-ph">What do you need?</option>
                 <optgroup data-i18n-label="form.opt-digital" label="Digital Services">
                   <option value="brand-identity" data-i18n="form.opt-brand">Brand Identity</option>
@@ -505,29 +560,31 @@
               </select>
               <span class="form__select-arrow" aria-hidden="true">&#9662;</span>
             </div>
+            <div class="form__error" id="service-error" role="alert"></div>
           </div>
           <div class="form__field">
             <label for="message" data-i18n="form.msg-label">Message</label>
             <textarea id="message" name="message" placeholder="Tell us about your project..." data-i18n-ph="form.msg-ph"
-              rows="4" required minlength="10" maxlength="2000" autocomplete="off"></textarea>
+              rows="4" required minlength="10" maxlength="2000" autocomplete="off" aria-describedby="message-error"></textarea>
+            <div class="form__error" id="message-error" role="alert"></div>
           </div>
-          <button type="submit" class="btn btn--primary btn--full" data-i18n="form.submit">Send message &#8599;</button>
+          <button type="submit" class="btn btn--primary btn--full"><span style="position:relative;top:-0.5px" data-i18n="form.submit">Send message <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></span></button>
         </form>
 
         <div class="contact__links">
-          <a href="mailto:hello@livadesign.eu">hello@livadesign.eu</a>
+          <a href="mailto:hello@livadesign.eu" class="footer__ico-num" data-copy="hello@livadesign.eu">hello@livadesign.eu</a>
           <span class="divider">|</span>
-          <a href="tel:+420704000666">+420 704 000 666</a>
+          <a href="tel:+420704000666" class="footer__ico-num" data-copy="+420 704 000 666"><span class="tel__prefix">+420</span> 704 000 666</a>
           <span class="divider">|</span>
-          <a href="#">Instagram</a>
+          <a href="https://instagram.com/livadesign_studio" target="_blank" rel="noopener noreferrer" aria-label="Liva on Instagram">Instagram</a>
           <span class="divider">|</span>
-          <a href="#">Dribbble</a>
+          <a href="https://dribbble.com/livadesign_studio" target="_blank" rel="noopener noreferrer" aria-label="Liva on Dribbble">Dribbble</a>
           <span class="divider">|</span>
-          <a href="#">LinkedIn</a>
+          <a href="https://linkedin.com/company/livadesign-studio" target="_blank" rel="noopener noreferrer" aria-label="Liva on LinkedIn">LinkedIn</a>
         </div>
         <div class="contact__legal">
-          <span class="contact__legal-name">LIVA Design s.r.o.</span>
-          <span class="contact__legal-ico"><span class="footer__ico-label">IČO</span> <span class="footer__ico-num" data-copy="22222222">22222222</span></span>
+          <span class="contact__legal-name">V&#225;clav &#268;mol&#237;k</span>
+          <span class="contact__legal-ico"><span class="footer__ico-label">IČO</span> <span class="footer__ico-num" data-copy="21355266">21355266</span></span>
           <svg class="contact__legal-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3351.29 2469.76" aria-hidden="true">
             <use href="#lv-path"/>
           </svg>
@@ -535,6 +592,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer" id="footer">
@@ -547,7 +606,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /.htaccess
+Disallow: /site.webmanifest
+
+Sitemap: https://livadesign.eu/sitemap.xml

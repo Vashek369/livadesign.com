@@ -1,0 +1,24 @@
+{
+  "name": "Liva",
+  "short_name": "Liva",
+  "description": "Grafické studio s přesahem do AI",
+  "icons": [
+    {
+      "src": "/assets/favicons/android-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/favicons/android-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#FF5500",
+  "background_color": "#0A0A0A",
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "cs"
+}
