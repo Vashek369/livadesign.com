@@ -3,7 +3,7 @@ name: liva-responsive
 description: Použij tento skill vždy, když upravuješ style.css, HTML layouty, nebo cokoli co má vliv na zobrazení na mobilu/tabletu/desktopu v tomto projektu. Trigger při jakékoli změně vizuálu, přidání sekce, úpravě komponenty, nebo práci s responsive chováním. Neignoruj ho ani u malých změn.
 ---
 
-# Liva Website — Responsive pravidla
+# LIVA Website — Responsive pravidla
 
 ## Stack reality (drž se toho, nevymýšlej nové)
 - Vanilla CSS v jednom souboru `style.css` (~2000 řádků)

@@ -7,13 +7,13 @@
   <title>LIVA Design — Graphic Studio</title>
   <meta name="description" content="Jsme grafické studio s přesahem do AI. Tvoříme weby, brandy a vizuální identity pro startupy a střední firmy. Reálné projekty, ověřené výsledky.">
   <meta name="keywords" content="grafické studio, web design, branding, AI design, Česká republika, startup design">
-  <meta name="author" content="Liva">
+  <meta name="author" content="LIVA">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-  <meta name="apple-mobile-web-app-title" content="Liva">
+  <meta name="apple-mobile-web-app-title" content="LIVA">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0A0A0A">
   <!-- Open Graph -->
@@ -27,14 +27,14 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="LIVA Design — logo grafického studia na černém pozadí">
   <meta property="og:locale" content="cs_CZ">
-  <meta property="og:site_name" content="Liva">
+  <meta property="og:site_name" content="LIVA">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://livadesign.eu/">
   <meta name="twitter:title" content="LIVA Design — Graphic Studio">
   <meta name="twitter:description" content="Tvoříme weby, brandy a vizuální identity pro startupy a střední firmy.">
   <meta name="twitter:image" content="https://livadesign.eu/assets/images/og-image.jpg">
-  <meta name="twitter:image:alt" content="Liva — Grafické studio s přesahem do AI">
+  <meta name="twitter:image:alt" content="LIVA — Grafické studio s přesahem do AI">
   <link rel="canonical" href="https://livadesign.eu/">
   <!-- Security: upgrade any accidental mixed-content requests to HTTPS -->
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://use.typekit.net; font-src https://use.typekit.net https://p.typekit.net; img-src 'self'; manifest-src 'self'; connect-src 'self' https://use.typekit.net https://p.typekit.net; base-uri 'self'; form-action 'self';">
@@ -75,7 +75,7 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <a href="#home" class="nav__logo"><span style="position:relative;top:2px">LIVA Design</span></a>
+    <a href="#home" class="nav__logo"><span style="position:relative;top:0.5px">LIVA Design</span></a>
     <div class="nav__right">
       <ul class="nav__links">
         <li>
@@ -91,6 +91,11 @@
         <li><a href="#about" data-i18n="nav.about">About</a></li>
       </ul>
       <a href="#contact" class="nav__cta"><span style="position:relative;top:-1px" data-i18n="nav.cta">Let's talk</span></a>
+    </div>
+    <div class="nav__lang nav__lang--mobile" id="mobileLangSwitch">
+      <button class="nav__lang-btn" data-lang="cs">CZ</button>
+      <span class="nav__lang-sep">/</span>
+      <button class="nav__lang-btn active" data-lang="en">EN</button>
     </div>
     <button class="nav__hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span>
@@ -119,8 +124,8 @@
     <div class="hero__zone-top">
       <div class="hero__content">
         <div class="hero__label-row reveal">
-          <div class="hero__tag"><span style="position:relative;top:-1px" data-i18n="hero.tag">Design Studio</span></div>
-          <span class="hero__tag-sub"><span style="position:relative;top:-0.5px" data-i18n="hero.tag-sub">(with an AI overlap)</span></span>
+          <div class="hero__tag"><span style="position:relative;top:-0.5px" data-i18n="hero.tag">Design Studio</span></div>
+          <span class="hero__tag-sub"><span style="position:relative;top:-1px;left:2.5px" data-i18n="hero.tag-sub">(with an AI overlap)</span></span>
         </div>
       </div>
     </div>
@@ -481,7 +486,7 @@
                 <picture>
                   <source media="(max-width: 768px)" srcset="assets/images/team/libor-mobile.webp" type="image/webp">
                   <source srcset="assets/images/team/libor.webp" type="image/webp">
-                  <img src="assets/images/team/libor.jpg" alt="Libor Jůzek, zakladatel Liva" loading="lazy" decoding="async" width="1200" height="1200">
+                  <img src="assets/images/team/libor.jpg" alt="Libor Jůzek, zakladatel LIVA" loading="lazy" decoding="async" width="1200" height="1200">
                 </picture>
               </div>
             </div>
@@ -494,7 +499,7 @@
                 <picture>
                   <source media="(max-width: 768px)" srcset="assets/images/team/vasek-mobile.webp" type="image/webp">
                   <source srcset="assets/images/team/vasek.webp" type="image/webp">
-                  <img src="assets/images/team/vasek.jpg" alt="Václav Čmolík, zakladatel Liva" loading="lazy" decoding="async" width="1200" height="1200">
+                  <img src="assets/images/team/vasek.jpg" alt="Václav Čmolík, zakladatel LIVA" loading="lazy" decoding="async" width="1200" height="1200">
                 </picture>
               </div>
             </div>
@@ -572,15 +577,19 @@
         </form>
 
         <div class="contact__links">
-          <a href="mailto:hello@livadesign.eu" class="footer__ico-num" data-copy="hello@livadesign.eu">hello@livadesign.eu</a>
-          <span class="divider">|</span>
-          <a href="tel:+420704000666" class="footer__ico-num" data-copy="+420 704 000 666"><span class="tel__prefix">+420</span> 704 000 666</a>
-          <span class="divider">|</span>
-          <a href="https://instagram.com/livadesign_studio" target="_blank" rel="noopener noreferrer" aria-label="Liva on Instagram">Instagram</a>
-          <span class="divider">|</span>
-          <a href="https://dribbble.com/livadesign_studio" target="_blank" rel="noopener noreferrer" aria-label="Liva on Dribbble">Dribbble</a>
-          <span class="divider">|</span>
-          <a href="https://linkedin.com/company/livadesign-studio" target="_blank" rel="noopener noreferrer" aria-label="Liva on LinkedIn">LinkedIn</a>
+          <div class="contact__links-row">
+            <a href="mailto:hello@livadesign.eu" class="footer__ico-num" data-copy="hello@livadesign.eu">hello@livadesign.eu</a>
+            <span class="divider">|</span>
+            <a href="tel:+420704000666" class="footer__ico-num" data-copy="+420 704 000 666"><span class="tel__prefix">+420</span> 704 000 666</a>
+          </div>
+          <span class="divider contact__row-sep">|</span>
+          <div class="contact__links-row">
+            <a href="https://instagram.com/livadesign_studio" target="_blank" rel="noopener noreferrer" aria-label="LIVA on Instagram">Instagram</a>
+            <span class="divider">|</span>
+            <a href="https://dribbble.com/livadesign_studio" target="_blank" rel="noopener noreferrer" aria-label="LIVA on Dribbble">Dribbble</a>
+            <span class="divider">|</span>
+            <a href="https://linkedin.com/company/livadesign-studio" target="_blank" rel="noopener noreferrer" aria-label="LIVA on LinkedIn">LinkedIn</a>
+          </div>
         </div>
         <div class="contact__legal">
           <span class="contact__legal-name">V&#225;clav &#268;mol&#237;k</span>
@@ -598,11 +607,15 @@
   <!-- FOOTER -->
   <footer class="footer" id="footer">
     <div class="container footer__inner">
-      <span class="footer__copy" data-i18n="footer.copy">&copy; 2026 LIVA Design. All rights reserved.</span>
-      <span class="footer__sep">&middot;</span>
-      <a href="privacy-policy.html" class="footer__tnc" data-i18n="footer.privacy">Privacy Policy</a>
-      <span class="footer__sep">&middot;</span>
-      <a href="terms.html" class="footer__tnc" data-i18n="footer.terms">Terms &amp; Conditions</a>
+      <div class="footer__rows">
+        <span class="footer__copy" data-i18n="footer.copy">&copy; 2026 LIVA Design. All rights reserved.</span>
+        <span class="footer__sep footer__sep--desktop">&middot;</span>
+        <div class="footer__links">
+          <a href="privacy-policy.html" class="footer__tnc" data-i18n="footer.privacy">Privacy Policy</a>
+          <span class="footer__sep">&middot;</span>
+          <a href="terms.html" class="footer__tnc" data-i18n="footer.terms">Terms &amp; Conditions</a>
+        </div>
+      </div>
     </div>
   </footer>
 

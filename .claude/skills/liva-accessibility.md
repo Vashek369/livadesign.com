@@ -9,9 +9,9 @@ Portfolio webu si všímá klientela v oboru (UX agentury, korporace). Basic a11
 
 ## Obrázky
 - Každý `<img>` má `alt` atribut
-- **Obsahový obrázek** (foto zakladatele): `alt="Libor Jůzek, zakladatel Liva"`
+- **Obsahový obrázek** (foto zakladatele): `alt="Libor Jůzek, zakladatel LIVA"`
 - **Dekorativní obrázek** (pattern, pozadí): `alt=""` (prázdný, screen reader ho přeskočí)
-- **Funkční obrázek** (logo co je odkaz): `alt="Liva — zpět na homepage"`
+- **Funkční obrázek** (logo co je odkaz): `alt="LIVA — zpět na homepage"`
 - SVG loga klientů: `alt="Český pekař"` (jméno brandu)
 
 ## Tlačítka & interakce

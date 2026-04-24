@@ -155,6 +155,30 @@ const TRANSLATIONS = {
   }
 };
 
+// Czech typography: non-breaking space after single-letter prepositions/conjunctions.
+// Runs only when lang='cs'; idempotent (NBSP after letter won't match again).
+function applyTypoFix(lang) {
+  if (lang !== 'cs') return;
+  const SKIP = new Set(['SCRIPT', 'STYLE', 'TEXTAREA', 'INPUT', 'CODE', 'PRE']);
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode(node) {
+        const tag = node.parentElement && node.parentElement.tagName;
+        return SKIP.has(tag) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    }
+  );
+  let node;
+  while ((node = walker.nextNode())) {
+    const orig = node.nodeValue;
+    // Match: (start-of-node OR whitespace/NBSP) + single CZ preposition/conjunction + regular space
+    const fixed = orig.replace(/(^|[ \t\n\r\u00A0])([aiouvskzAIOUVSKZ]) /g, '$1$2\u00A0');
+    if (fixed !== orig) node.nodeValue = fixed;
+  }
+}
+
 function applyLang(lang) {
   const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -178,12 +202,22 @@ function applyLang(lang) {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
   try { localStorage.setItem('liva-lang', lang); } catch (e) { }
+  applyTypoFix(lang);
 }
 
 // --- Language switcher ---
 const langSwitch = document.getElementById('langSwitch');
 if (langSwitch) {
   langSwitch.addEventListener('click', e => {
+    const btn = e.target.closest('.nav__lang-btn');
+    if (!btn) return;
+    applyLang(btn.dataset.lang);
+  });
+}
+
+const mobileLangSwitch = document.getElementById('mobileLangSwitch');
+if (mobileLangSwitch) {
+  mobileLangSwitch.addEventListener('click', e => {
     const btn = e.target.closest('.nav__lang-btn');
     if (!btn) return;
     applyLang(btn.dataset.lang);
@@ -310,8 +344,15 @@ if (hamburger && mobileMenu) {
   });
 
   document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
       closeMobileMenu();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      setTimeout(() => {
+        const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 60;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+      }, 50);
     });
   });
 
@@ -322,6 +363,37 @@ if (hamburger && mobileMenu) {
     }
   });
 }
+
+// --- Mobile project card tap overlay ---
+(function () {
+  let activeCard = null;
+  let dismissTimer = null;
+
+  function closeActive() {
+    if (activeCard) {
+      activeCard.classList.remove('is-active');
+      activeCard = null;
+    }
+    clearTimeout(dismissTimer);
+  }
+
+  document.querySelectorAll('.project').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (window.innerWidth > 1024) return;
+      e.preventDefault();
+      if (activeCard === card) { closeActive(); return; }
+      closeActive();
+      card.classList.add('is-active');
+      activeCard = card;
+      dismissTimer = setTimeout(closeActive, 3500);
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth > 1024) return;
+    if (activeCard && !activeCard.contains(e.target)) closeActive();
+  });
+})();
 
 // --- Scroll reveal ---
 const revealObserver = new IntersectionObserver((entries) => {
@@ -528,9 +600,28 @@ if (heroGrid && !prefersReducedMotion) {
   if (prefersReducedMotion) return;
   const hero = document.querySelector('.hero');
   const hGrid = document.querySelector('.hero__grid');
-  if (!hero || !hGrid || !window.matchMedia('(pointer: fine)').matches) return;
+  if (!hero || !hGrid) return;
 
-  const CELL = 60;    // must match CSS background-size
+  const isTouch = !window.matchMedia('(pointer: fine)').matches;
+
+  // CELL and gridOffsetY must match CSS background-size / background-position exactly.
+  // Desktop: 60px fixed. Tablet (769–1024px): calc(100%/6). Mobile (≤768px): 20%, offset by --nav-h.
+  let CELL = 60;
+  let gridOffsetY = 0;
+  function computeMetrics() {
+    const w = hGrid.offsetWidth;
+    if (!isTouch) {
+      CELL = 60;
+      gridOffsetY = 0;
+    } else if (window.innerWidth >= 769) {
+      CELL = Math.round(window.innerWidth / 7);
+      gridOffsetY = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 60;
+    } else {
+      CELL = Math.round(w * 0.20);
+      gridOffsetY = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 60;
+    }
+  }
+  computeMetrics();
   const MAX_STEPS = 11;    // max grid hops per wave
   const STEP_MS = 44;    // base ms between propagation steps
   const SEG_LIFE = 2600;  // max ms a\u00a0segment stays visible
@@ -545,7 +636,11 @@ if (heroGrid && !prefersReducedMotion) {
   const ctx = cvs.getContext('2d');
 
   let cw, ch;
-  const resize = () => { cw = cvs.width = hGrid.offsetWidth; ch = cvs.height = hGrid.offsetHeight; };
+  const resize = () => {
+    cw = cvs.width = hGrid.offsetWidth;
+    ch = cvs.height = hGrid.offsetHeight;
+    computeMetrics();
+  };
   resize();
   new ResizeObserver(resize).observe(hGrid);
 
@@ -574,8 +669,8 @@ if (heroGrid && !prefersReducedMotion) {
 
   function enqueue(ci, ri, energy, fireAt, step, pci, pri) {
     if (step > MAX_STEPS || energy < 0.035) return;
-    if (ci * CELL < -CELL || ri * CELL < -CELL ||
-      ci * CELL > cw + CELL || ri * CELL > ch + CELL) return;
+    if (ci * CELL < -CELL || ri * CELL + gridOffsetY < -CELL ||
+      ci * CELL > cw + CELL || ri * CELL + gridOffsetY > ch + CELL) return;
     queue.push({ ci, ri, energy, fireAt, step, pci, pri });
   }
 
@@ -633,7 +728,7 @@ if (heroGrid && !prefersReducedMotion) {
       const sep = key.indexOf(':');
       const r = +key.slice(1, sep);
       const c = +key.slice(sep + 1);
-      const x1 = c * CELL, y1 = r * CELL;
+      const x1 = c * CELL, y1 = r * CELL + gridOffsetY;
       const x2 = isV ? x1 : x1 + CELL;
       const y2 = isV ? y1 + CELL : y1;
 
@@ -650,29 +745,26 @@ if (heroGrid && !prefersReducedMotion) {
     }
   }
 
-  /* ── Cursor tracking ──────────────────────────────────────────────── */
+  /* ── Cursor tracking (desktop only) ───────────────────────────────── */
   let lastCI = -9999, lastRI = -9999;
   let present = false, hCI = -9999, hRI = -9999, reinjAt = 0;
 
-  hero.addEventListener('mousemove', e => {
-    // Ignore the navbar overlay zone
-    if (e.clientY <= nav.getBoundingClientRect().bottom) return;
-
-    const r = hGrid.getBoundingClientRect();
-    const ci = Math.round((e.clientX - r.left) / CELL);
-    const ri = Math.round((e.clientY - r.top) / CELL);
-    present = true; hCI = ci; hRI = ri;
-
-    if (ci !== lastCI || ri !== lastRI) {
-      lastCI = ci; lastRI = ri;
-      // Full-energy wave on intersection change
-      enqueue(ci, ri, 1.0, performance.now(), 0, null, null);
-    }
-  });
-
-  hero.addEventListener('mouseleave', () => {
-    present = false; hCI = -9999; hRI = -9999;
-  });
+  if (!isTouch) {
+    hero.addEventListener('mousemove', e => {
+      if (e.clientY <= nav.getBoundingClientRect().bottom) return;
+      const r = hGrid.getBoundingClientRect();
+      const ci = Math.round((e.clientX - r.left) / CELL);
+      const ri = Math.round((e.clientY - r.top) / CELL);
+      present = true; hCI = ci; hRI = ri;
+      if (ci !== lastCI || ri !== lastRI) {
+        lastCI = ci; lastRI = ri;
+        enqueue(ci, ri, 1.0, performance.now(), 0, null, null);
+      }
+    });
+    hero.addEventListener('mouseleave', () => {
+      present = false; hCI = -9999; hRI = -9999;
+    });
+  }
 
   /* ── RAF loop — paused when hero is off-screen ───────────────────── */
   let heroVisible = true;
@@ -683,6 +775,8 @@ if (heroGrid && !prefersReducedMotion) {
     if (heroVisible && !canvasRafId) canvasRafId = requestAnimationFrame(frame);
   }, { threshold: 0 }).observe(hero);
 
+  let nextAutoFire = 0;
+
   function frame(now) {
     canvasRafId = null;
     if (!heroVisible) return;
@@ -690,6 +784,18 @@ if (heroGrid && !prefersReducedMotion) {
     if (present && now > reinjAt) {
       reinjAt = now + 2000;
       enqueue(hCI, hRI, 0.58, now, 0, null, null);
+    }
+    // Mobile: random auto-fire every 1.8–3.8 s at a random grid intersection
+    if (isTouch && now > nextAutoFire) {
+      nextAutoFire = now + 800 + Math.random() * 2000;
+      const cols = Math.ceil(cw / CELL);
+      const rows = Math.ceil((ch - gridOffsetY) / CELL);
+      enqueue(
+        Math.floor(Math.random() * cols),
+        Math.floor(Math.random() * rows),
+        0.55 + Math.random() * 0.35,
+        now, 0, null, null
+      );
     }
     processQueue(now);
     draw(now);

@@ -1,6 +1,6 @@
 # LIVA Design — Deployment Guide
 
-Tento dokument je pro kamoše, který dělá technický deploy webu Liva Design.
+Tento dokument je pro kamoše, který dělá technický deploy webu LIVA Design.
 
 ---
 

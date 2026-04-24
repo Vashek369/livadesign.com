@@ -1,4 +1,4 @@
-# Liva Website — Project Rules
+# LIVA Website — Project Rules
 
 Tento soubor čteš automaticky při každé úloze v tomto projektu. Pravidla tady jsou závazná, neignoruj je.
 
